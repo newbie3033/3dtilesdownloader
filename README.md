@@ -1,18 +1,8 @@
+# 3dtiles_downloader
+      用于从cesium.ion 上下载转换后的3dtiles数据
 
-
-
-参数
-   -u --url  必选，需要下载的3d tiles 地址
-
-   -d --dir  必选，需要保存的目录
-
-   -s --start 可选，默认为0，有时候会下载失败，重新执行的时候可以通过此参数跳过前多少个
-
-示例：
-
-python downloader.py -u https://beta.cesium.com/api/assets/1458/tileset.json?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxYmJiNTAxOC1lOTg5LTQzN2EtODg1OC0zMWJjM2IxNGNlYmMiLCJpZCI6NDQsImFzc2V0cyI6WzE0NThdLCJpYXQiOjE0OTkyNjM4MjB9.1WKijRa-ILkmG6utrhDWX6rDgasjD7dZv-G5ZyCmkKg -d c:\gisdata\3dtiles  
-
-这个数据里有 392个b3dm，如果下载第100个出错，下次可以从第100个开始重新下载
-
-
-python downloader.py -u https://beta.cesium.com/api/assets/1458/tileset.json?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxYmJiNTAxOC1lOTg5LTQzN2EtODg1OC0zMWJjM2IxNGNlYmMiLCJpZCI6NDQsImFzc2V0cyI6WzE0NThdLCJpYXQiOjE0OTkyNjM4MjB9.1WKijRa-ILkmG6utrhDWX6rDgasjD7dZv-G5ZyCmkKg -d c:\gisdata\3dtiles -s 100
+## 示例
+```shell
+python downloader.py -u https://assets.cesium.com/1/tileset.json -d /path/ -t access-token-key
+```
+其中 access-token-key 是指通过web请求https://assets.cesium.com/1/tileset.json数据时自动生成的token，而非cesium.ion的token，并且这个token只在一段时间内有效，会动态改变，有效期貌似是一个小时左右
